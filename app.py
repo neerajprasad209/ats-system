@@ -11,7 +11,11 @@ genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 def get_gemini_response(input,pdf_content,prompt):
     model = genai.GenerativeModel("gemini-pro")
-    
+    """
+    You are a an Experience Techinal Human Resource Manager, your task is to review the provided reume against the job description.
+    Please share the professional evaluation on weather the candidate's profile alings with the role.
+    Highlight the strengths and weakness of the applicant in the relation to the specified job requirements. 
+    """
     response = model.generate_content([input,pdf_content,prompt])
     return response.text
 
